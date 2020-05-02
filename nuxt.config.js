@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiUrl = 'http://phsineda.wp.xdomain.jp/wp-json/wp/v2'
+const apiUrl = process.env.API_URL || 'http://phsineda.wp.xdomain.jp/wp-json/wp/v2'
 // const apiUrl = 'http://un-tech.jp/wp-json/wp/v2'
 
 export default {
