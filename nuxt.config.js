@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require('axios')
 const apiUrl = process.env.API_URL || 'http://phsineda.wp.xdomain.jp/wp-json/wp/v2'
 // const apiUrl = 'http://un-tech.jp/wp-json/wp/v2'
 
@@ -63,15 +63,15 @@ export default {
     extend (config, ctx) {
     }
   },
-  // generate: {
-  //   routes: async () => {
-  //     const { data } = await axios.get(`${apiUrl}/posts?_embed`)
-  //     return data.map(post => {
-  //       return {
-  //         route: `/posts/${post.id}`,
-  //         payload: post
-  //       }
-  //     })
-  //   }
-  // }
+  generate: {
+    routes: async () => {
+      const { data } = await axios.get(`${apiUrl}/posts?_embed`)
+      return data.map(post => {
+        return {
+          route: `/posts/${post.id}`,
+          payload: post
+        }
+      })
+    }
+  }
 }
